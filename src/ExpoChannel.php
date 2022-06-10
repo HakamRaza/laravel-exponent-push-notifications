@@ -59,6 +59,8 @@ class ExpoChannel
             $this->events->dispatch(
                 new NotificationFailed($notifiable, $notification, 'expo-push-notifications', $e->getMessage())
             );
+        } catch (\Throwable $e) {
+            report($e);
         }
     }
 
